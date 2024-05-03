@@ -245,3 +245,27 @@ button.delete ion-icon {
     margin: 10px auto;
   }
 }
+.cart-items .cart-total .buttonPay {
+  text-decoration: none;
+  display: inline-block;
+  padding: 7px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+  color: #fff;
+  background-color: #d3d9e1;
+  border: none;
+  border-radius: 13px;
+  box-shadow: 0 9px #999;
+  position: absolute;
+  right: 80px;
+}
+.buttonPay:hover {background-color: #0f3460}
+
+.buttonPay:active {
+  background-color: #0f3460;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+  
+}

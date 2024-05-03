@@ -10,18 +10,20 @@ import {
 const Cart = () => {
   const { cartList } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
-  // middlware to localStorage
+  // middleware to localStorage
   const totalPrice = cartList.reduce(
     (price, item) => price + item.qty * item.price,
     0
   );
   useEffect(() => {
     window.scrollTo(0, 0);
-    // if(CartItem.length ===0) {
-    //   const storedCart = localStorage.getItem("cartItem");
-    //   setCartItem(JSON.parse(storedCart));
-    // }
   }, []);
+  
+  const handlePayNow = () => {
+    // Navigate to Payment.html
+    window.location.href = "Payment.html";
+  };
+
   return (
     <section className="cart-items">
       <Container>
@@ -43,8 +45,8 @@ const Cart = () => {
                         <Col xs={12} sm={9} className="cart-details">
                           <h3>{item.productName}</h3>
                           <h4>
-                            ${item.price}.00 * {item.qty}
-                            <span>${productQty}.00</span>
+                            DH{item.price}.00 * {item.qty}
+                            <span>DH{productQty}.00</span>
                           </h4>
                         </Col>
                         <Col xs={12} sm={3} className="cartControl">
@@ -81,7 +83,9 @@ const Cart = () => {
               <h2>Cart Summary</h2>
               <div className=" d_flex">
                 <h4>Total Price :</h4>
-                <h3>${totalPrice}.00</h3>
+                <h3>DH{totalPrice}.00
+                <button className="buttonPay" onClick={handlePayNow}>Pay Now</button>
+                </h3>
               </div>
             </div>
           </Col>
